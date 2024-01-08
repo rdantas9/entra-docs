@@ -45,6 +45,7 @@ If the user is unable to sign into using Pass-through Authentication, they may s
 |AADSTS80004|The username passed to the agent was not valid|Ensure the user is attempting to sign in with the right username.
 |AADSTS80005|Validation encountered unpredictable WebException|A transient error. Retry the request. If it continues to fail, contact Microsoft support.
 |AADSTS80007|An error occurred communicating with Active Directory|Check the agent logs for more information and verify that Active Directory is operating as expected.
+|AADSTS80012|Your account has time restrictions that keep you from signing in right now|The users attempted to log on outside of the allowed hours (this is specified in AD on-premises), check user account's properties, Account tab, "Logon Hours" button.
 
 ### Users get invalid username/password error
 
@@ -89,9 +90,10 @@ Navigate to **Microsoft Entra ID** -> **Sign-ins** on the [[Microsoft Entra admi
 | 80003 | Invalid response received by Authentication Agent. | If the problem is consistently reproducible across multiple users, check your Active Directory configuration.
 | 80004 | Incorrect User Principal Name (UPN) used in sign-in request. | Ask the user to sign in with the correct username.
 | 80005 | Authentication Agent: Error occurred. | Transient error. Try again later.
-| 80007 | Authentication Agent unable to connect to Active Directory. | Check if your Active Directory is reachable from the Authentication Agent.
+| 80007 | Authentication Agent unable to connect to Active Directory. | Check if your Active Directory is reachable from the Authentication Agent or check user account's properties (AD On-premises), Account tab, "Logon On To" button.
 | 80010 | Authentication Agent unable to decrypt password. | If the problem is consistently reproducible, install and register a new Authentication Agent. And uninstall the current one.
 | 80011 | Authentication Agent unable to retrieve decryption key. | If the problem is consistently reproducible, install and register a new Authentication Agent. And uninstall the current one.
+| 80012 | Your account has time restrictions that keep you from signing in right now. | The users attempted to log on outside of the allowed hours (this is specified in AD on-premises), check user account's properties, Account tab, "Logon Hours" button.
 | 80014 | Validation request responded after maximum elapsed time exceeded. | Authentication agent timed out. Open a support ticket with the error code, correlation ID, and timestamp to get more details on this error
 
 > [!IMPORTANT]
